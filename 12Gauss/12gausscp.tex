@@ -4,6 +4,9 @@
 \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
 \usepackage{amsmath}
 \usepackage{url}
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+\patchcmd{\thebibliography}{\addcontentsline{toc}{section}{\refname}}{}{}{}
 \begin{document}
 
     \setcounter{page}{55}
@@ -92,6 +95,7 @@ It is a problem from the field of pure mathematics. This problem is important be
 
 
 
+\section*{Bibliography}
 \begin{thebibliography}{9}
 
 \bibitem{IEEEhowto:kopka}

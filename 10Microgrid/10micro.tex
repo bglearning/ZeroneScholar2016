@@ -4,6 +4,9 @@
 \DeclareGraphicsExtensions{.pdf,.png,.jpeg}
 \usepackage{amsmath}
 \usepackage{array}
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+\patchcmd{\thebibliography}{\addcontentsline{toc}{section}{\refname}}{}{}{}
 %\usepackage{url}
 
 \begin{document}
@@ -275,6 +278,7 @@ generation unit look quite promising and hence show
 potential for future success and development.
 
 
+\section*{Bibliography}
 \begin{thebibliography}{99}
 
     %21

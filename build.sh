@@ -26,9 +26,12 @@ cd $output_folder
 # Delete the previous version
 if [ -f $output_file ];
 then
+    echo "Deleting the Previous Version of the Output File" 
     rm $output_file
 fi
 
 # Unite the pdf into the Output File
+echo "Uniting the output pdf into a single file..."
 pdfunite $(ls -v *.pdf) $output_file
+echo "Output File Created: ${output_file}"
 

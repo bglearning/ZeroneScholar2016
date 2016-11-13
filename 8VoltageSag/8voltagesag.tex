@@ -7,6 +7,9 @@
 \usepackage{amsmath}
 \usepackage{algorithmic}
 \usepackage{array}
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+\patchcmd{\thebibliography}{\addcontentsline{toc}{section}{\refname}}{}{}{}
 \usepackage{url}
     \begin{document}
     \setcounter{page}{37}
@@ -262,6 +265,7 @@ sinusoidal sag may occur. This work can further extended
 for compensation of non-sinusoidal sag.
 
 
+\section*{Bibliography}
 \begin{thebibliography}{9}
 
     \bibitem{Bollen1999} 
