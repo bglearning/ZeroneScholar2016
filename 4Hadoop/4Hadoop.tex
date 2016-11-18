@@ -66,6 +66,8 @@
 \documentclass[journal,twoside]{IEEEtran}
 \usepackage{blindtext}
 \usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath}
 \usepackage{acro}
 
 \acsetup{first-style=short}
@@ -538,7 +540,15 @@ The basic block diagram of the program execution is shown in figure \ref{fig:flo
 \end{enumerate}
 
 \subsection{Computing LCS using Row-wise processing Technique}
-The row-wise processing is inherited from the traditional approach for filling the dynamic programming table. However, this time, we concentrate only on those table entries which correspond to a match. Each dominant match defines a new corner to a contour line. To maintain the columns where all contour lines cross the current row, we use the array $MinYPrefix[1..p]$, where $MinYPrefix[l]$ gives the Y-index where the l'th contour line is located. As the name of the array suggests, the value of $MinYPrefix[l]$ may be regarded as a cursor, which indicates the minimum length prefix of Y that is needed to produce a common subsequence of length l with the first i elements of X. Value p denotes $r(X[1..i], Y[1..n])$, that is, the number of contour lines crossing row i. Initially, the values of MinYPrefix are initialized to 'undefined'.
+The row-wise processing is inherited from the traditional approach for filling the dynamic programming table. 
+However, this time, we concentrate only on those table entries which correspond to a match. 
+Each dominant match defines a new corner to a contour line. 
+To maintain the columns where all contour lines cross the current row, we use the array $MinYPrefix[1..p]$, 
+where $MinYPrefix[l]$ gives the Y-index where the l'th contour line is located. As the name of the array 
+suggests, the value of $MinYPrefix[l]$ may be regarded as a cursor, which indicates the minimum 
+length prefix of Y that is needed to produce a common subsequence of length l with the first i elements of X. 
+Value p denotes $r(X[1..i], Y[1..n])$, that is, the number of contour lines crossing row i. 
+Initially, the values of MinYPrefix are initialized to 'undefined'.
 
 
 \begin{table}[h]
@@ -546,7 +556,7 @@ The row-wise processing is inherited from the traditional approach for filling t
 \begin{center}
     \begin{tabular}{| c | c | c | c | c | c | c | c | }
     \hline
-    \multirow{Row} & \multicolumn{7}{ |c| }{MinYPrefix} \\ \cline{2-8}
+    \multirow{2}{*}{Row} & \multicolumn{7}{ |c| }{MinYPrefix} \\ \cline{2-8}
      & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
     0 & 0 &   & & & & & \\ \hline
     1 & 0 & 3 & & & & & \\ \hline
@@ -731,7 +741,7 @@ value:  [[0, {'a': 0, 'A': u'', 'b': 30, 'e': 0, 'lcs': 'BDABATCAGACCGGTAC', 'f'
 
 
 \subsection{Complexity Analysis}
-The time complexity of core lcs computing part is  $O(pm.log(n/p)+pm)$ where p is length of the lcs and n, m is length of str1 and str2 respectively. And space complexity is also $O(n2/2)$.
+The time complexity of core LCS computing algorithm is $O(\text{\textbar} M\text{\textbar} log(n))$ where $\text{\textbar}M\text{\textbar}$ denotes the number of all matches. The space complexity of the algorithm is $O(n^2)$.
 \\
 \subsection{Run Time of Algorithm}
 Performance is measured by running this algorithm for two input sequences. Below are the results for the time taken with single node. The configuration is Intel Core i5 CPU and 8GB of RAM. The linux version is ubuntu 14.04. Two input sequences are run  for 10 times and average time is computed. The time taken by this algorithm is listed below. 
@@ -756,7 +766,7 @@ string with length 17990 and 17990 with lcs of length 17984 and per process leng
 \begin{center}
     \begin{tabular}{| c | c | c | c | c| }
     \hline
-\multirow{}{}{S.N.} & \multicolumn{4}{|c|}{Per Process Length} \\ \cline{2-5}
+\multirow{2}{*}{S.N.} & \multicolumn{4}{|c|}{Per Process Length} \\ \cline{2-5}
 & 1500 & 500  & 100 & 50 \\ \hline
 1 & 188051 ms & 23204 ms & 2010 ms & 940 ms \\ \hline
 2 & 190373 ms & 22622 ms & 1951 ms & 961 ms \\ \hline
