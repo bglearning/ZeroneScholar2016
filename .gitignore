@@ -10,7 +10,6 @@
 *.fot
 *.cb
 *.cb2
-
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
@@ -33,3 +32,5 @@
 *-blx.bib
 *.brf
 *.run.xml
+
+*.db
